@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/mlflow-server', '-f', 'docker/mlflow.Dockerfile', '.']
+images:
+- 'gcr.io/$PROJECT_ID/mlflow-server'

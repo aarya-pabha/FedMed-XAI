@@ -1,0 +1,6 @@
+outs:
+- md5: 9392c403d28ca55b602f17da769329ae.dir
+  size: 256757438
+  nfiles: 1132
+  hash: md5
+  path: fed_ixi

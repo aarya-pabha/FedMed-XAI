@@ -1,0 +1,224 @@
+<svg width="1100" height="1100" viewBox="0 0 1100 1100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad-hosp" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f1f5f9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e2e8f0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="grad-cloud" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8fafc;stop-opacity:1" />
+    </linearGradient>
+
+    <!-- PRECISION PATHS -->
+    <path id="h1-gcs" d="M 230 160 C 400 160, 450 160, 580 185" />
+    <path id="h2-gcs" d="M 230 360 C 400 360, 450 220, 580 195" />
+    <path id="h3-gcs" d="M 230 560 C 400 560, 450 300, 580 205" />
+    <path id="gcs-h1" d="M 580 185 C 450 160, 400 160, 230 160" />
+    
+    <path id="h1-auth" d="M 230 200 C 350 200, 450 710, 535 710" />
+    <path id="auth-h1" d="M 535 710 C 450 710, 350 200, 230 200" />
+    <path id="h2-auth" d="M 230 400 C 350 400, 450 730, 535 730" />
+    <path id="auth-h2" d="M 535 730 C 450 730, 350 400, 230 400" />
+    <path id="h3-auth" d="M 230 600 C 350 600, 450 750, 535 750" />
+    <path id="auth-h3" d="M 535 750 C 450 750, 350 600, 230 600" />
+
+    <path id="h2-ml" d="M 230 420 C 400 420, 420 530, 535 530" />
+    <path id="h3-ml" d="M 230 620 C 400 620, 420 530, 535 530" />
+
+    <path id="gcs-h2" d="M 580 195 C 450 210, 400 360, 230 360" />
+    <path id="gcs-h3" d="M 580 205 C 450 250, 400 570, 230 570" />
+    <path id="h1-ml" d="M 230 190 C 400 190, 420 530, 535 530" />
+    <path id="gcf-medplum" d="M 825 310 L 825 730 L 715 730" />
+    <path id="gcf-mlflow" d="M 850 310 L 850 530 L 715 530" />
+    <path id="gcs-fs" d="M 710 170 L 770 170" />
+    <path id="fs-gcf" d="M 825 200 L 825 240" />
+    <path id="gcf-gcs" d="M 760 275 L 710 230" />
+    
+    <!-- DB PATHS -->
+    <path id="ml-sql-path" d="M 590 560 L 590 600" />
+    <path id="mp-sql-path" d="M 560 760 L 560 800" />
+    <path id="mp-redis-path" d="M 680 760 L 680 800" />
+  </defs>
+
+  <style>
+    .bg { fill: #f8fafc; }
+    .box { stroke: #cbd5e1; stroke-width: 2; rx: 8; fill: #fff; }
+    .box-hosp { fill: url(#grad-hosp); stroke: #94a3b8; }
+    .container { fill: none; stroke: #e2e8f0; stroke-width: 1.5; rx: 12; }
+    .title { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 13px; font-weight: 600; fill: #1e293b; }
+    .subtitle { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 10px; fill: #64748b; }
+    .group-label { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; font-weight: bold; fill: #94a3b8; }
+    .narrative-bg { fill: #1e293b; rx: 8; }
+    .narrative-text { font-family: 'JetBrains Mono', monospace; font-size: 16px; font-weight: bold; fill: #10b981; }
+    .line { fill: none; stroke: #cbd5e1; stroke-width: 1.5; stroke-dasharray: 4; opacity: 0.3; }
+    
+    @keyframes step-fade { 0%, 16.6% { opacity: 1; } 16.7%, 100% { opacity: 0; } }
+    @keyframes step2-fade { 0%, 16.6% { opacity: 0; } 16.7%, 33.3% { opacity: 1; } 33.4%, 100% { opacity: 0; } }
+    @keyframes step3-fade { 0%, 33.3% { opacity: 0; } 33.4%, 50% { opacity: 1; } 50.1%, 100% { opacity: 0; } }
+    @keyframes step4-fade { 0%, 50% { opacity: 0; } 50.1%, 66.6% { opacity: 1; } 66.7%, 100% { opacity: 0; } }
+    @keyframes step5-fade { 0%, 66.6% { opacity: 0; } 66.7%, 83.3% { opacity: 1; } 83.4%, 100% { opacity: 0; } }
+    @keyframes step6-fade { 0%, 83.3% { opacity: 0; } 83.4%, 100% { opacity: 1; } }
+
+    @keyframes flow { 0% { offset-distance: 0%; opacity: 0; } 10% { opacity: 1; } 90% { opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+    .animate-flow { animation: flow 3s infinite linear; }
+    .animate-fast { animation: flow 1.5s infinite linear; }
+    
+    .s1 { animation: step-fade 24s infinite; }
+    .s2 { animation: step2-fade 24s infinite; }
+    .s3 { animation: step3-fade 24s infinite; }
+    .s4 { animation: step4-fade 24s infinite; }
+    .s5 { animation: step5-fade 24s infinite; }
+    .s6 { animation: step6-fade 24s infinite; }
+
+    @keyframes hospital-glow { 0%, 16.6% { filter: none; } 20%, 30% { filter: drop-shadow(0 0 15px #3b82f6); } 33.3%, 100% { filter: none; } }
+    .hosp-pulse { animation: hospital-glow 24s infinite; }
+  </style>
+
+  <rect width="1100" height="1100" class="bg" />
+
+  <g transform="translate(250, 40)">
+    <rect width="600" height="50" class="narrative-bg" />
+    <text x="300" y="32" text-anchor="middle" class="narrative-text s1">STEP 1: Zero-Trust Medplum Auth</text>
+    <text x="300" y="32" text-anchor="middle" class="narrative-text s2">STEP 2: Private Local Training (LDP)</text>
+    <text x="300" y="32" text-anchor="middle" class="narrative-text s3">STEP 3: Gradient Sharding &amp; Upload</text>
+    <text x="300" y="32" text-anchor="middle" class="narrative-text s4">STEP 4: Serverless FedAvg Logic</text>
+    <text x="300" y="32" text-anchor="middle" class="narrative-text s5">STEP 5: Global Model Synchronization</text>
+    <text x="300" y="32" text-anchor="middle" class="narrative-text s6">STEP 6: Immutable Audit &amp; MLOps</text>
+  </g>
+
+  <!-- REGION 1: CLINICAL EDGE -->
+  <rect x="30" y="110" width="220" height="600" class="container" />
+  <text x="140" y="135" text-anchor="middle" class="group-label">CLINICAL EDGE</text>
+  <g transform="translate(50, 160)" class="hosp-pulse">
+    <rect width="180" height="80" class="box box-hosp" />
+    <text x="90" y="30" text-anchor="middle" class="title">Hospital Node 1</text>
+    <text x="90" y="52" text-anchor="middle" class="subtitle">U-Net++ / Opacus LDP</text>
+    <text x="90" y="66" text-anchor="middle" class="subtitle">NVIDIA L4 GPU</text>
+  </g>
+  <g transform="translate(50, 360)" class="hosp-pulse">
+    <rect width="180" height="80" class="box box-hosp" />
+    <text x="90" y="30" text-anchor="middle" class="title">Hospital Node 2</text>
+    <text x="90" y="52" text-anchor="middle" class="subtitle">U-Net++ / Opacus LDP</text>
+    <text x="90" y="66" text-anchor="middle" class="subtitle">NVIDIA L4 GPU</text>
+  </g>
+  <g transform="translate(50, 560)" class="hosp-pulse">
+    <rect width="180" height="80" class="box box-hosp" />
+    <text x="90" y="30" text-anchor="middle" class="title">Hospital Node 3</text>
+    <text x="90" y="52" text-anchor="middle" class="subtitle">U-Net++ / Opacus LDP</text>
+    <text x="90" y="66" text-anchor="middle" class="subtitle">NVIDIA L4 GPU</text>
+  </g>
+
+  <!-- REGION 2: SERVERLESS AGGREGATION -->
+  <rect x="550" y="110" width="450" height="280" class="container" style="stroke:#3b82f6" />
+  <text x="775" y="135" text-anchor="middle" class="group-label" style="fill:#3b82f6">AGGREGATION</text>
+  <g transform="translate(580, 170)">
+    <rect width="130" height="90" class="box" stroke="#3b82f6" />
+    <text x="65" y="35" text-anchor="middle" class="title">GCS Buckets</text>
+    <text x="65" y="55" text-anchor="middle" class="subtitle">Shards In/Out</text>
+    <text x="65" y="70" text-anchor="middle" class="subtitle">Versioning Active</text>
+  </g>
+  <g transform="translate(770, 170)">
+    <rect width="110" height="60" class="box" stroke="#fbbf24" />
+    <text x="55" y="25" text-anchor="middle" class="title">Firestore</text>
+    <text x="55" y="42" text-anchor="middle" class="subtitle">Atomic Locks</text>
+    <text x="55" y="54" text-anchor="middle" class="subtitle">State Tracking</text>
+  </g>
+  <g transform="translate(760, 270)">
+    <rect width="130" height="70" class="box" stroke="#10b981" />
+    <text x="65" y="30" text-anchor="middle" class="title">Cloud Function</text>
+    <text x="65" y="50" text-anchor="middle" class="subtitle">Iterative FedAvg</text>
+    <text x="65" y="62" text-anchor="middle" class="subtitle">2nd Gen (Triggered)</text>
+  </g>
+
+  <!-- REGION 3: CONTROL PLANE -->
+  <rect x="450" y="450" width="350" height="520" class="container" style="stroke:#64748b" />
+  <text x="625" y="475" text-anchor="middle" class="group-label">CONTROL PLANE</text>
+  
+  <g transform="translate(535, 500)">
+    <rect width="180" height="60" class="box" stroke="#e11d48" />
+    <text x="90" y="25" text-anchor="middle" class="title">MLflow Server</text>
+    <text x="90" y="45" text-anchor="middle" class="subtitle">Experiment Tracking</text>
+  </g>
+  <g transform="translate(555, 600)">
+    <rect width="140" height="40" class="box" stroke="#e11d48" />
+    <text x="70" y="25" text-anchor="middle" class="title" style="font-size:11px">PostgreSQL DB</text>
+  </g>
+
+  <g transform="translate(535, 700)">
+    <rect width="180" height="60" class="box" stroke="#8b5cf6" />
+    <text x="90" y="25" text-anchor="middle" class="title">Medplum Server</text>
+    <text x="90" y="45" text-anchor="middle" class="subtitle">Compliance &amp; Audit</text>
+  </g>
+  <g transform="translate(500, 800)">
+    <rect width="120" height="40" class="box" stroke="#8b5cf6" />
+    <text x="60" y="25" text-anchor="middle" class="title" style="font-size:11px">PostgreSQL DB</text>
+  </g>
+  <g transform="translate(630, 800)">
+    <rect width="100" height="40" class="box" stroke="#f43f5e" />
+    <text x="50" y="25" text-anchor="middle" class="title" style="font-size:11px">Redis Cache</text>
+  </g>
+
+  <!-- STATIC PATHS -->
+  <use href="#h1-auth" class="line" style="stroke:#f97316" />
+  <use href="#h2-auth" class="line" style="stroke:#f97316" />
+  <use href="#h3-auth" class="line" style="stroke:#f97316" />
+  <use href="#h1-gcs" class="line" style="stroke:#3b82f6" />
+  <use href="#h2-gcs" class="line" style="stroke:#3b82f6" />
+  <use href="#h3-gcs" class="line" style="stroke:#3b82f6" />
+  <use href="#gcs-fs" class="line" style="stroke:#fbbf24" />
+  <use href="#fs-gcf" class="line" style="stroke:#10b981" />
+  <use href="#gcf-gcs" class="line" style="stroke:#10b981" />
+  <use href="#h1-ml" class="line" style="stroke:#e11d48" />
+  <use href="#h2-ml" class="line" style="stroke:#e11d48" />
+  <use href="#h3-ml" class="line" style="stroke:#e11d48" />
+  <use href="#gcf-medplum" class="line" style="stroke:#8b5cf6" />
+  <use href="#gcf-mlflow" class="line" style="stroke:#e11d48" />
+  <use href="#ml-sql-path" class="line" style="stroke:#e11d48" />
+  <use href="#mp-sql-path" class="line" style="stroke:#8b5cf6" />
+  <use href="#mp-redis-path" class="line" style="stroke:#f43f5e" />
+
+  <!-- SEQUENTIAL ANIMATIONS -->
+  <!-- Step 1: Auth (3 Nodes) -->
+  <g class="s1">
+    <circle r="4" fill="#f97316" class="animate-flow"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h1-auth" /></animateMotion></circle>
+    <circle r="4" fill="#8b5cf6" class="animate-flow"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#auth-h1" /></animateMotion></circle>
+    <circle r="4" fill="#f97316" class="animate-flow" style="animation-delay:0.3s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h2-auth" /></animateMotion></circle>
+    <circle r="4" fill="#8b5cf6" class="animate-flow" style="animation-delay:0.3s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#auth-h2" /></animateMotion></circle>
+    <circle r="4" fill="#f97316" class="animate-flow" style="animation-delay:0.6s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h3-auth" /></animateMotion></circle>
+    <circle r="4" fill="#8b5cf6" class="animate-flow" style="animation-delay:0.6s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#auth-h3" /></animateMotion></circle>
+    <circle r="2" fill="#8b5cf6" class="animate-fast"><animateMotion dur="1s" repeatCount="indefinite"><mpath href="#mp-sql-path" /></animateMotion></circle>
+    <circle r="2" fill="#f43f5e" class="animate-fast delay-half"><animateMotion dur="1s" repeatCount="indefinite"><mpath href="#mp-redis-path" /></animateMotion></circle>
+  </g>
+
+  <g class="s3">
+    <circle r="5" fill="#3b82f6" class="animate-flow"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h1-gcs" /></animateMotion></circle>
+    <circle r="5" fill="#3b82f6" class="animate-flow" style="animation-delay:0.5s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h2-gcs" /></animateMotion></circle>
+    <circle r="5" fill="#3b82f6" class="animate-flow" style="animation-delay:1s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h3-gcs" /></animateMotion></circle>
+  </g>
+
+  <!-- Step 4: Aggregator Loop (Narrated) -->
+  <g class="s4">
+    <circle r="4" fill="#fbbf24" class="animate-flow"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#gcs-fs" /></animateMotion></circle>
+    <circle r="4" fill="#10b981" class="animate-flow" style="animation-delay:1s"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#fs-gcf" /></animateMotion></circle>
+    <circle r="4" fill="#8b5cf6" class="animate-flow" style="animation-delay:2s"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#gcf-medplum" /></animateMotion></circle>
+    <circle r="4" fill="#10b981" class="animate-flow" style="animation-delay:3s"><animateMotion dur="4s" repeatCount="indefinite"><mpath href="#gcf-gcs" /></animateMotion></circle>
+  </g>
+
+  <!-- Step 5: Download (3 Nodes) -->
+  <g class="s5">
+    <circle r="5" fill="#10b981" class="animate-flow"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#gcs-h1" /></animateMotion></circle>
+    <circle r="5" fill="#10b981" class="animate-flow" style="animation-delay:0.5s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#gcs-h2" /></animateMotion></circle>
+    <circle r="5" fill="#10b981" class="animate-flow" style="animation-delay:1s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#gcs-h3" /></animateMotion></circle>
+  </g>
+
+  <!-- Step 6: Log (3 Nodes + Aggregator) -->
+  <g class="s6">
+    <circle r="4" fill="#8b5cf6" class="animate-flow"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#gcf-medplum" /></animateMotion></circle>
+    <circle r="4" fill="#e11d48" class="animate-flow"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#gcf-mlflow" /></animateMotion></circle>
+    <circle r="4" fill="#e11d48" class="animate-flow" style="animation-delay:0.5s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h1-ml" /></animateMotion></circle>
+    <circle r="4" fill="#e11d48" class="animate-flow" style="animation-delay:1s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h2-ml" /></animateMotion></circle>
+    <circle r="4" fill="#e11d48" class="animate-flow" style="animation-delay:1.5s"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#h3-ml" /></animateMotion></circle>
+    <circle r="2" fill="#8b5cf6" class="animate-fast"><animateMotion dur="1s" repeatCount="indefinite"><mpath href="#mp-sql-path" /></animateMotion></circle>
+    <circle r="2" fill="#e11d48" class="animate-fast"><animateMotion dur="1s" repeatCount="indefinite"><mpath href="#ml-sql-path" /></animateMotion></circle>
+  </g>
+  </svg>

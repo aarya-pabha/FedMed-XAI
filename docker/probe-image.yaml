@@ -1,0 +1,4 @@
+steps:
+- name: 'docker.io/medplum/medplum-server:latest'
+  entrypoint: 'sh'
+  args: ['-c', 'echo "--- ROOT LISTING ---"; ls -F /; echo "--- WORKDIR LISTING ---"; ls -R /usr/src/medplum | head -n 50; echo "--- FINDING INDEX.JS ---"; find / -name index.js']

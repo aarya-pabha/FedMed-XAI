@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  medplum-server:
+    image: medplum/medplum-server:latest
+    ports:
+      - "8103:8103"
+    volumes:
+      - ./medplum.config.json:/usr/src/medplum/medplum.config.json:ro
+    command: ["node", "dist/index.js", "file:medplum.config.json"]
+    depends_on:
+      - cloud-sql-proxy
+
+  cloud-sql-proxy:
+    image: gcr.io/cloud-sql-connectors/cloud-sql-proxy:2.14
+    command:
+      - "--address=0.0.0.0"
+      - "--port=5432"
+      - "healthcare-fl-diagnostics:us-central1:fl-metadata-db"
+    expose:
+      - "5432"

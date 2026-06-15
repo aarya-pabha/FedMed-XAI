@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/healthcare-fl-diagnostics/medplum-server:latest'
+  entrypoint: 'sh'
+  args: 
+    - '-c'
+    - |
+      echo "--- ROOT ---"
+      pwd
+      ls -la /usr/src/medplum/packages/server/dist
+      echo "--- TESTING NODE ---"
+      node -e "console.log(require('fs').existsSync('/usr/src/medplum/packages/server/dist/index.js'))"
+      node /usr/src/medplum/packages/server/dist/index.js || echo "NODE FAILED"

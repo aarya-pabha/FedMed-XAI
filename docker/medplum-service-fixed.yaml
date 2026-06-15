@@ -1,0 +1,56 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: medplum-server
+  labels:
+    cloud.googleapis.com/location: us-central1
+  annotations:
+    run.googleapis.com/ingress: all
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '20'
+        run.googleapis.com/cloudsql-instances: healthcare-fl-diagnostics:us-central1:fl-metadata-db
+        run.googleapis.com/startup-cpu-boost: 'true'
+        run.googleapis.com/vpc-access-connector: fl-connector
+        run.googleapis.com/vpc-access-egress: private-ranges-only
+    spec:
+      containerConcurrency: 80
+      containers:
+      - image: gcr.io/healthcare-fl-diagnostics/medplum-server:latest
+        ports:
+        - containerPort: 8103
+        env:
+        - name: MEDPLUM_DATABASE_HOST
+          value: "${DB_IP}"
+        - name: MEDPLUM_DATABASE_PORT
+          value: '5432'
+        - name: MEDPLUM_DATABASE_DBNAME
+          value: medplum_db
+        - name: MEDPLUM_DATABASE_USERNAME
+          value: postgres
+        - name: MEDPLUM_DATABASE_PASSWORD
+          value: "${DB_PASS}"
+        - name: MEDPLUM_DATABASE_SSL_REQUIRE
+          value: "false"
+        - name: MEDPLUM_REDIS_HOST
+          value: "${REDIS_IP}"
+        - name: MEDPLUM_REDIS_PORT
+          value: '6379'
+        - name: MEDPLUM_REDIS_SSL_REQUIRE
+          value: "false"
+        - name: MEDPLUM_BASE_URL
+          value: https://medplum-server-789083630799.us-central1.run.app/
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1Gi
+        startupProbe:
+          failureThreshold: 10
+          periodSeconds: 30
+          tcpSocket:
+            port: 8103
+          timeoutSeconds: 10
+      serviceAccountName: 789083630799-compute@developer.gserviceaccount.com
+      timeoutSeconds: 300

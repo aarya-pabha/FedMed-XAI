@@ -1,0 +1,17 @@
+{
+  "baseUrl": "https://medplum-server-789083630799.us-central1.run.app/",
+  "port": 8103,
+  "database": {
+    "host": "${DB_IP}",
+    "port": 5432,
+    "dbname": "medplum_db",
+    "username": "postgres",
+    "password": "${DB_PASS}"
+  },
+  "redis": {
+    "host": "${REDIS_IP}",
+    "port": 6379
+  },
+  "binaryStorage": "file:./binary/",
+  "logLevel": "info"
+}

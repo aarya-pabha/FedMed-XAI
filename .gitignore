@@ -1,0 +1,52 @@
+.venv/
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+mlruns/
+.dvc/config.local
+.env
+colab-client-key.json
+medplum-build-env/
+.venv311/
+ray_tmp/
+*.nii.gz
+__pycache__/
+.pytest_cache/
+
+# Node.js and Credentials
+node_modules/
+medplum_client_credentials.json
+
+# Temporary files
+temp_hash.py
+temp_query.sql
+temp_query.py
+temp_zip/
+docs/architecture.svg
+# Project Documentation & Internal Tools
+MEMORY.md
+conductor/
+docs/superpowers/
+docs/mermaid_preview.html
+
+# Data & Large Artifacts
+data/
+mlruns/
+ray_tmp/
+
+/*.safetensors
+Healthcare_FL_Verification.zip
+*.zip
+*.png
+TODO.md
+# Credentials & Machine-Specific Config
+.env
+medplum_client_credentials.json
+colab-client-key.json
+package-lock.json
+GEMINI.md
+# Experimental & Debug Scripts
+scripts/debug/
+temp_*
+scripts/setup_isolated_medplum.*
+tests/verify_medplum_isolation.py

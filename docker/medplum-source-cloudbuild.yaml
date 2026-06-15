@@ -1,0 +1,6 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/medplum-server', '-f', 'docker/medplum-full-source.Dockerfile', '.']
+  timeout: '1800s' # Allow 30 minutes for the heavy compile
+images:
+- 'gcr.io/$PROJECT_ID/medplum-server'
