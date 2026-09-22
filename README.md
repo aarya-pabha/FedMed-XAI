@@ -1,9 +1,20 @@
-# FedMed-XAI: Serverless Federated Diagnostics with HIPAA Compliance
+<div align="center">
 
-![Architecture](https://img.shields.io/badge/Architecture-Federated%20Learning-3b82f6.svg)
-![Privacy](https://img.shields.io/badge/Privacy-Opacus%20LDP-10b981.svg)
-![Explainability](https://img.shields.io/badge/Explainability-Grad--CAM-e11d48.svg)
-![Compliance](https://img.shields.io/badge/Compliance-HIPAA%20%2F%20FHIR-8b5cf6.svg)
+# 🏥 FedMed-XAI: Serverless Federated Diagnostics with HIPAA Compliance
+### Distributed GradsSharding • Opacus Differential Privacy • Medplum FHIR Audit • Grad-CAM XAI
+
+[![Python](https://img.shields.io/badge/Python-3.11+-0f172a?style=flat&logo=python&logoColor=38bdf8)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-0f172a?style=flat&logo=pytorch&logoColor=ee4c2c)](https://pytorch.org/)
+[![MONAI](https://img.shields.io/badge/MONAI-U--Net++-0f172a?style=flat&logo=medicalinformation&logoColor=38bdf8)](https://monai.io/)
+[![Opacus](https://img.shields.io/badge/Privacy-Opacus%20DP--SGD-0f172a?style=flat&logo=meta&logoColor=0668e1)](https://opacus.ai/)
+[![Flower](https://img.shields.io/badge/Federated%20Learning-Flower%20(FLWR)-0f172a?style=flat&logo=flower&logoColor=ffd21e)](https://flower.ai/)
+[![Medplum](https://img.shields.io/badge/Compliance-HIPAA%20%2F%20FHIR-0f172a?style=flat&logo=shield&logoColor=10b981)](https://www.medplum.com/)
+[![GCP Serverless](https://img.shields.io/badge/GCP-Cloud%20Functions%20%2B%20GCS-0f172a?style=flat&logo=googlecloud&logoColor=4285f4)](https://cloud.google.com/)
+[![MLflow](https://img.shields.io/badge/MLOps-MLflow-0f172a?style=flat&logo=mlflow&logoColor=0194e2)](https://mlflow.org/)
+[![License](https://img.shields.io/badge/License-MIT-0f172a?style=flat)](LICENSE)
+
+</div>
+
 
 ## 🩺 Project Vision & Clinical Utility
 This repository implements a production-grade infrastructure for decentralized machine learning in the healthcare sector. It demonstrates how isolated clinical institutions can collaboratively train a **32-Channel Wide U-Net++** diagnostic model on MRI scans without ever violating patient data residency.
